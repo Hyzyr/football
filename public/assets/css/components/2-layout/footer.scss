@@ -1,0 +1,59 @@
+.footer {
+  background: $black;
+  &__inner {
+    display: flex;
+    height: 85px;
+    align-items: center;
+    justify-content: center;
+
+    &-link {
+      position: relative;
+      padding: 0.5em 1em;
+      //font
+      color: rgba($white, 0.5);
+      font-family: $font-main;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 1;
+      transition: 0.1s ease-in;
+
+      &:not(:last-child):after {
+        content: "";
+        position: absolute;
+        display: block;
+        height: 1em;
+        width: 2px;
+        left: 100%;
+        top: 50%;
+        border-radius: 1px;
+        transform: translate(-50%, -50%);
+        background: rgba($white, 0.5);
+      }
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+}
+
+@mixin footer-sm-md {
+  .footer {
+    &__inner {
+      height: 75px;
+      &-link {
+        font-size: 14px;
+      }
+    }
+  }
+}
+@mixin footer-xxsm-xsm {
+  .footer {
+    &__inner {
+      height: 65px;
+      &-link {
+        font-size: 12px;
+      }
+    }
+  }
+}

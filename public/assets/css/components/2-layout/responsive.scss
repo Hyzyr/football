@@ -1,0 +1,153 @@
+// (max-width: 1366px)
+@include xxlg-xxxlg {
+  @include index-xxlg-xxxlg;
+}
+// (max-width: 1280px)
+@include xlg-xxlg {
+  @include index-xlg-xxlg;
+}
+// (max-width: 1180px)
+@include xlg-xxlg-extra {
+  @include index-xlg-xxlg-extra;
+}
+// (max-width: 1024px)
+@include lg-xlg {
+  .auto__container {
+    padding: 0 20px;
+  }
+  @include typography-lg-xlg;
+  @include header-lg-xlg;
+  @include index-lg-xlg;
+}
+// (max-width: 840px)
+@include md-lg {
+  @include typography-md-lg;
+  @include index-md-lg;
+}
+// (max-width: 768px)
+@include sm-md {
+  .message {
+    font-size: 18px;
+    padding: 20px;
+    &__outer {
+      width: 100%;
+    }
+  }
+  @include header-sm-md;
+  @include footer-sm-md;
+  @include index-sm-md;
+}
+// (max-width: 660px)
+@include xsm-sm {
+  @include typography-xsm-sm;
+  @include index-xsm-sm;
+  .popup {
+    position: relative;
+    padding: 15px 20px;
+    width: 95%;
+    max-width: 335px;
+    min-height: unset;
+    &.loading {
+      .popup {
+        &__content {
+          label {
+            display: none;
+          }
+          input {
+            display: none;
+          }
+        }
+      }
+    }
+    &__image {
+      width: calc(33% - 5px);
+      max-width: 85px;
+      img {
+        margin-top: 45px;
+      }
+    }
+    &__content {
+      width: calc(67% - 3px);
+      max-width: 195px;
+      label {
+        font-size: 12px;
+      }
+      .customInput {
+        input {
+          font-size: 12px;
+          height: 40px;
+        }
+      }
+      .button {
+        font-size: 14px;
+        padding: 13px;
+      }
+      &-loader {
+        strong {
+          font-size: 12px;
+        }
+      }
+      &-error {
+        font-size: 12px;
+      }
+    }
+
+    .help {
+      margin-top: 5px;
+      padding: 0;
+      &__text {
+        width: calc(67% - 3px);
+        max-width: 195px;
+        margin-left: auto;
+      }
+    }
+  }
+  .help {
+    &__text {
+      font-size: 12px;
+    }
+    &__content {
+      &-item {
+        padding-left: 50px;
+        font-size: 12px;
+        .step {
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}
+// (max-width: 540px)
+@include xxsm-xsm {
+  @include header-xxsm-xsm;
+  @include index-xxsm-xsm;
+}
+
+// (max-width: 480px)
+@include xxxsm-xxsm {
+  @include index-xxxsm-xxsm;
+}
+// (max-width: 400px)
+@include xxxxsm-xxxsm {
+  .auto__container {
+    padding: 0 15px;
+  }
+  .popup {
+    padding: 10px;
+    &__image {
+      width: calc(30% - 10px);
+    }
+    &__content {
+      width: calc(70% + 3px);
+    }
+    .help {
+      &__text {
+        width: calc(70% + 3px);
+      }
+    }
+  }
+  @include typography-xxxxsm-xxxsm;
+  @include header-xxxxsm-xxxsm;
+  @include footer-xxsm-xsm;
+  @include index-xxxxsm-xxxsm;
+}

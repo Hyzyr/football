@@ -1,0 +1,56 @@
+@keyframes sticky {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+// @keyframes fadeInDown {
+//   from {
+//     opacity: 0;
+//     transform: translateY(-20%);
+//   }
+//   to {
+//     opacity: 1;
+//     transform: translateY(0%);
+//   }
+// }
+
+// .fadeInDown {
+//   animation: fadeInDown 0.2s ease-in-out;
+//   animation-fill-mode: both;
+// }
+
+.spinner {
+  -webkit-animation: spinn 2s infinite linear;
+  animation: spinn 2s infinite ease;
+}
+@keyframes animateUp {
+  from {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.animateUp {
+  animation: animateUp 0.2s ease-in-out;
+  animation-fill-mode: both;
+}
+@keyframes spinn {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}

@@ -1,0 +1,108 @@
+/*** 
+
+====================================================================
+	Reset
+====================================================================
+
+***/
+// :root {
+//   font-size: calc(1vw + 0.6em);
+// }
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  outline: none;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+button,
+input,
+textarea {
+  outline: none;
+  background: transparent;
+}
+button:focus {
+  outline: none;
+}
+button:focus {
+  outline: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="date"] {
+  -webkit-appearance: none;
+}
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="month"]::-webkit-inner-spin-button,
+input[type="month"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba($color: $black, $alpha: 0.2);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba($color: $black, $alpha: 0.3);
+}
+
+body {
+  font-family: $font-main;
+  color: $black;
+  background: $white-1;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+
+  &.gradient {
+    background: #fff;
+  }
+
+  &.active {
+    overflow: hidden;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $black;
+}
+
+.auto__container {
+  position: relative;
+  max-width: 1310px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
