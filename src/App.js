@@ -1,5 +1,5 @@
 import Loader from "components/items/Loader";
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { connect } from "react-redux";
 

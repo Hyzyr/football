@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Header from "./Header";
 import * as SVG from "components/items/SVG";
 import Loader from "components/items/Loader";
@@ -6,10 +6,14 @@ import { connect, useDispatch } from "react-redux";
 import * as appActions from "store/controllers/appController";
 import MainIndex from "./MainIndex";
 import Message from "components/items/Message";
+import WOW from "wowjs";
 
 const Main = ({ dataInitialized }) => {
   const dispatch = useDispatch();
-
+  new WOW.WOW({
+    live: false,
+  }).init();
+  
   global.SVG = SVG;
 
   //init data once it enters to this page

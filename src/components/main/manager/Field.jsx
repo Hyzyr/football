@@ -75,7 +75,7 @@ const FieldCells = ({ hasTeam, data }) => {
 };
 const Player = ({ player }) => {
   return (
-    <div className="field__player">
+    <div className="field__player wow fadeInUp">
       <div className="field__player-image">
         <img src={global.assetsFolder + player.shirtUrl} alt="shirt" />
       </div>

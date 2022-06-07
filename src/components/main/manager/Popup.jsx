@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
+import React, { useState } from "react";
 import { Spinner } from "components/items/Loader";
 import { useDispatch } from "react-redux";
 import { linkTeam } from "store/controllers/teamController";
@@ -12,7 +11,7 @@ const Popup = () => {
 
   const dispatch = useDispatch();
 
-  let addClass = " wow animateUp ";
+  let addClass = " fadeInUp ";
   if (state === "loading") addClass += " loading";
 
   const inputDisabled = state === "loading";
@@ -35,7 +34,7 @@ const Popup = () => {
   };
 
   return (
-    <div className={`popup wow ${addClass}`}  data-wow-delay=".2s">
+    <div className={`popup wow ${addClass}`} data-wow-delay=".2s">
       <div className="popup__image">
         <img
           src={
@@ -80,6 +79,5 @@ const Popup = () => {
     </div>
   );
 };
-
 
 export default Popup;

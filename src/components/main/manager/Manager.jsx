@@ -1,17 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import CountDown from "components/items/CountDown";
 import { connect } from "react-redux";
 import Field from "./Field";
 import Help from "./Help";
-import WOW from "wowjs";
 
 const Manager = ({ hasTeam, meta, gameweek, children }) => {
-  useEffect(() => {
-    new WOW.WOW({
-      live: false,
-    }).init();
-  }, []);
-
   return (
     <>
       <div className="manager fadeInUp ">
