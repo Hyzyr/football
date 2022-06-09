@@ -4,11 +4,10 @@ import Slider from "react-slick";
 const Info = ({
   anchor,
   title,
-  type,
   shortName,
   moreButtonFunc,
-  cols = 2,
   children,
+  showButton = true,
 }) => {
   return (
     <>
@@ -18,10 +17,12 @@ const Info = ({
           <div className="info__inner">
             <div className="info__inner-title">
               <h3>{title}</h3>
-              <button onClick={moreButtonFunc}>
-                See all&nbsp;{shortName && <span>{shortName}</span>}
-                {global.SVG.arrowRight}
-              </button>
+              {showButton && (
+                <button onClick={moreButtonFunc}>
+                  See all&nbsp;{shortName && <span>{shortName}</span>}
+                  {global.SVG.arrowRight}
+                </button>
+              )}
             </div>
             {children}
           </div>

@@ -1,8 +1,26 @@
-import React from "react";
-import { connect } from "react-redux";
-import Popup from "./Popup";
+import Img from "components/items/Img";
+import React, { useState } from "react";
+import { connect, useDispatch } from "react-redux";
+import Popup, { PopupSmall } from "./Popup";
+import { linkTeam, clearTeamError } from "store/controllers/teamController";
 
-const Field = ({ hasTeam, players }) => {
+const Field = ({ hasTeam, players, state, errorMessage }) => {
+  const [errorShown, setErrorShown] = useState(false); // this is only for test purposes
+  const dispatch = useDispatch();
+
+  const onSubmit = (value) => {
+    if (!errorShown) {
+      // this is only for test purposes
+      setErrorShown(true);
+      dispatch(linkTeam(null, "Error happend"));
+    } else {
+      dispatch(linkTeam(null));
+    }
+  };
+  const closePopup = () => {
+    dispatch(clearTeamError());
+  };
+
   return (
     <div className="field">
       <div className="field__body">
@@ -41,13 +59,28 @@ const Field = ({ hasTeam, players }) => {
           </div>
         )}
         <div
-          className={`field__body-popup ${!hasTeam ? "active" : ""}`}
+          className={`field__body-popup ${
+            state !== "" || !hasTeam ? "active" : ""
+          }`}
           id="field-popup"
         >
-          {!hasTeam && <Popup state={"loading"} />}
+          {state !== "" && hasTeam && (
+            <PopupSmall
+              state={state}
+              errorMessage={errorMessage}
+              onClose={closePopup}
+            />
+          )}
+          {!hasTeam && (
+            <Popup
+              submitFunc={onSubmit}
+              state={state}
+              errorMessage={errorMessage}
+            />
+          )}
         </div>
       </div>
-      <FieldCells hasTeam={hasTeam} data={players["S"]} />
+      <FieldCells hasTeam={hasTeam} data={players ? players["S"] : null} />
     </div>
   );
 };
@@ -77,7 +110,7 @@ const Player = ({ player }) => {
   return (
     <div className="field__player wow fadeInUp">
       <div className="field__player-image">
-        <img src={global.assetsFolder + player.shirtUrl} alt="shirt" />
+        <Img src={player.shirtUrl} alt="shirt" />
       </div>
       <strong className="field__player-title">{player.name}</strong>
       <PlayerFdr data={player.fdr} />
@@ -91,7 +124,13 @@ const PlayerFdr = ({ data }) => {
         <div className="field__player-fdr-group" key={groupIndex}>
           {item.map((fdr, fdrIndex) => (
             <div className="field__player-fdr-item" key={fdrIndex}>
-              <span>{fdr.displayShortName}</span>
+              <span>
+                {!fdr.displayShortName || fdr.opponentId === 0 ? (
+                  <>&nbsp;</>
+                ) : (
+                  fdr.displayShortName
+                )}
+              </span>
               <span
                 className="color"
                 style={{ backgroundColor: `#${fdr.difficultyHexCode}` }}
@@ -105,6 +144,8 @@ const PlayerFdr = ({ data }) => {
 };
 
 const mapStateToProps = (state) => ({
+  state: state.team.fieldState,
+  errorMessage: state.team.errorMessage,
   hasTeam: state.team.hasTeam,
   players: state.team.teamData?.players,
 });

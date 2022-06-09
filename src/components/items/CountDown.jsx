@@ -1,24 +1,16 @@
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-export default function CountDown({ date }) {
-  const [time, setTime] = useState({
-    hours: "00",
-    min: "00",
-    sec: "00",
-  });
-
-  useEffect(() => {
-    getTime();
-    setInterval(getTime, 1000);
-  }, [date]);
-
-  const addZero = (n) => {
-    if (n > 9) return n;
-    return `0${n}`;
+const CountDown = ({ date }) => {
+  const initState = {
+    hours: 0,
+    min: 0,
+    sec: 0,
   };
-  const getTime = () => {
-    const date1 = new Date(date).getTime();
-    const date2 = Date.now();
+  const [time, setTime] = useState(initState);
+
+  const getTime = (date) => {
+    const date2 = new Date(date).getTime();
+    const date1 = Date.now();
     if (!date1) return;
 
     const diffTime = Math.abs(date2 - date1);
@@ -33,7 +25,6 @@ export default function CountDown({ date }) {
     const diffHours = hoursPassed;
     const diffMin = minPassed - hoursPassed * 60;
     const diffSec = secPassed - minPassed * 60;
-
     setTime({
       //   weeks: diffWeeks,
       //   days: diffDays < 10 ? `0${diffDays}` : diffDays,
@@ -43,5 +34,24 @@ export default function CountDown({ date }) {
     });
   };
 
+  useEffect(() => {
+    const dateTime = new Date(date).getTime();
+
+    if (dateTime - Date.now() <= 0) {
+      setTime(initState);
+    } else {
+      getTime(date);
+      setInterval(() => getTime(date), 1000);
+    }
+    // eslint-disable-next-line
+  }, [date]);
+
+  const addZero = (n) => {
+    if (n > 9) return n;
+    return `0${n}`;
+  };
+
   return `${addZero(time.hours)}:${addZero(time.min)}:${addZero(time.sec)}`;
-}
+};
+
+export default CountDown;

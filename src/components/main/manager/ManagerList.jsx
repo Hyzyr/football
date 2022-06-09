@@ -1,14 +1,15 @@
+import Img from "components/items/Img";
 import React from "react";
 
-function ManagerList({ title, items }) {
+const ManagerList = ({ title, items }) => {
   const weekdays = [
+    "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
     "Thursday",
     "Friday",
     "Saturday",
-    "Sunday",
   ];
   const month = [
     "January",
@@ -28,6 +29,7 @@ function ManagerList({ title, items }) {
     return `${weekdays[date.getDay()]}, ${
       month[date.getMonth()]
     } ${date.getDate()}`;
+    // eslint-disable-next-line
   }, [title]);
   return (
     <ul className="manager__list">
@@ -37,7 +39,7 @@ function ManagerList({ title, items }) {
       ))}
     </ul>
   );
-}
+};
 
 const ManagerListItem = ({ data }) => {
   const addZero = (n) => {
@@ -54,10 +56,7 @@ const ManagerListItem = ({ data }) => {
   return (
     <div className="manager__list-item ">
       <div className="manager__list-item-ico">
-        <img
-          src={global.assetsFolder + data.home?.iconUrl}
-          alt={data.home?.threeLetterCode}
-        />
+        <Img src={data.home?.iconUrl} alt={data.home?.threeLetterCode} />
       </div>
       <span className="hidden">{data.home?.threeLetterCode}</span>
 
@@ -69,10 +68,7 @@ const ManagerListItem = ({ data }) => {
 
       <span className="hidden">{data.home?.threeLetterCode}</span>
       <div className="manager__list-item-ico">
-        <img
-          src={global.assetsFolder + data.away?.iconUrl}
-          alt={data.away?.threeLetterCode}
-        />
+        <Img src={data.away?.iconUrl} alt={data.away?.threeLetterCode} />
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import WOW from "wowjs";
 
-export default function Lander() {
+const Lander = () => {
   useEffect(() => {
     new WOW.WOW({
       live: false,
@@ -104,4 +104,6 @@ export default function Lander() {
       </div>
     </>
   );
-}
+};
+
+export default Lander;

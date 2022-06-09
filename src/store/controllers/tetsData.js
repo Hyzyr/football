@@ -24,7 +24,7 @@ const fdrArray = [
   [
     {
       opponentId: 19,
-      displayShortName: "TOT",
+      displayShortName: "",
       difficulty: 3,
       difficultyHexCode: "EB5757",
     },
@@ -51,7 +51,8 @@ const rowArray = [
     name: "Alexander-Arnold",
     playerId: 154,
     teamId: 7,
-    shirtUrl: "images/uniforms/football-uniform-7.png",
+    shirtUrl:
+      "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon17.png",
     fdr: fdrArray,
   },
   {
@@ -144,16 +145,34 @@ export const teamObject = {
       },
     ],
     D: rowArray,
-    M: [...rowArray].splice(2,4),
-    F: [...rowArray].splice(0,2),
-    S: [...rowArray].splice(0,4),
+    M: [...rowArray].splice(2, 4),
+    F: [...rowArray].splice(0, 2),
+    S: [...rowArray].splice(0, 4),
+  },
+};
+
+export const teamObject2 = {
+  meta: {
+    name: "Bella Ciao",
+    budgetTotal: 100,
+    budgetRemaining: 5,
+    pointsTotal: 219,
+    pointsGameweek: 32,
+  },
+  players: {
+    G: [rowArray[4]],
+    D: [...rowArray].splice(3, 5),
+    M: [...rowArray].splice(0, 3),
+    F: [...rowArray].splice(0, 2),
+    S: [...rowArray].splice(0, 4),
   },
 };
 
 export const fixturesObject = {
   meta: {
     gameweek: 37,
-    deadlineUtcDateEpoch: 1654589307449,
+    // deadlineUtcDateEpoch: 1654764436689, // test passed date
+    deadlineUtcDateEpoch: 1654844800000,
   },
   fixtures: [
     {
@@ -184,7 +203,8 @@ export const fixturesObject = {
       away: {
         teamId: 5,
         threeLetterCode: "LIV",
-        iconUrl: "images/teams/4.png",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon17.png",
         score: 0,
       },
     },
@@ -205,7 +225,7 @@ export const fixturesObject = {
       },
     },
     {
-      dateUtcEpoch: 1646494200000,
+      dateUtcEpoch: 1646582400000,
       hasScore: false,
       home: {
         teamId: 15,
@@ -221,7 +241,7 @@ export const fixturesObject = {
       },
     },
     {
-      dateUtcEpoch: 1646496000000,
+      dateUtcEpoch: 1646582400000,
       hasScore: false,
       home: {
         teamId: 7,
@@ -234,9 +254,323 @@ export const fixturesObject = {
       away: {
         teamId: 19,
 
-        iconUrl: "images/teams/4.png",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon17.png",
 
         threeLetterCode: "ARS",
+        score: null,
+      },
+    },
+  ],
+};
+export const fixturesObjectMax = {
+  meta: {
+    gameweek: 36,
+    // deadlineUtcDateEpoch: 1654764436689, // test passed date
+    deadlineUtcDateEpoch: 1654844800000,
+  },
+  fixtures: [
+    {
+      id: 343,
+      dateUtcEpoch: 1651932000000,
+      hasScore: true,
+      home: {
+        teamId: 3,
+        threeLetterCode: "BRE",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon3.png",
+        score: 2,
+      },
+      away: {
+        teamId: 16,
+        threeLetterCode: "SOU",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon16.png",
+        score: 3,
+      },
+    },
+    {
+      id: 344,
+      dateUtcEpoch: 1651932000000,
+      hasScore: true,
+      home: {
+        teamId: 5,
+        threeLetterCode: "BUR",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon5.png",
+        score: 0,
+      },
+      away: {
+        teamId: 2,
+        threeLetterCode: "AVL",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon2.png",
+        score: 0,
+      },
+    },
+    {
+      id: 345,
+      dateUtcEpoch: 1651932000000,
+      hasScore: true,
+      home: {
+        teamId: 6,
+        threeLetterCode: "CHE",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon6.png",
+        score: 5,
+      },
+      away: {
+        teamId: 20,
+        threeLetterCode: "WOL",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon20.png",
+        score: 1,
+      },
+    },
+    {
+      id: 346,
+      dateUtcEpoch: 1651932000000,
+      hasScore: false,
+      home: {
+        teamId: 7,
+        threeLetterCode: "CRY",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon7.png",
+        score: null,
+      },
+      away: {
+        teamId: 18,
+        threeLetterCode: "WAT",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon18.png",
+        score: null,
+      },
+    },
+    {
+      id: 347,
+      dateUtcEpoch: 1651941000000,
+      hasScore: false,
+      home: {
+        teamId: 4,
+        threeLetterCode: "BHA",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon4.png",
+        score: null,
+      },
+      away: {
+        teamId: 13,
+        threeLetterCode: "MUN",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon13.png",
+        score: null,
+      },
+    },
+    {
+      id: 348,
+      dateUtcEpoch: 1651949100000,
+      hasScore: false,
+      home: {
+        teamId: 11,
+        threeLetterCode: "LIV",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon11.png",
+        score: null,
+      },
+      away: {
+        teamId: 17,
+        threeLetterCode: "TOT",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon17.png",
+        score: null,
+      },
+    },
+    {
+      id: 349,
+      dateUtcEpoch: 1652014800000,
+      hasScore: false,
+      home: {
+        teamId: 1,
+        threeLetterCode: "ARS",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon1.png",
+        score: null,
+      },
+      away: {
+        teamId: 10,
+        threeLetterCode: "LEE",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon10.png",
+        score: null,
+      },
+    },
+    {
+      id: 350,
+      dateUtcEpoch: 1652014800000,
+      hasScore: false,
+      home: {
+        teamId: 9,
+        threeLetterCode: "LEI",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon9.png",
+        score: null,
+      },
+      away: {
+        teamId: 8,
+        threeLetterCode: "EVE",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon8.png",
+        score: null,
+      },
+    },
+    {
+      id: 351,
+      dateUtcEpoch: 1652014800000,
+      hasScore: false,
+      home: {
+        teamId: 15,
+        threeLetterCode: "NOR",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon15.png",
+        score: null,
+      },
+      away: {
+        teamId: 19,
+        threeLetterCode: "WHU",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon19.png",
+        score: null,
+      },
+    },
+    {
+      id: 352,
+      dateUtcEpoch: 1652023800000,
+      hasScore: false,
+      home: {
+        teamId: 12,
+        threeLetterCode: "MCI",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon12.png",
+        score: null,
+      },
+      away: {
+        teamId: 14,
+        threeLetterCode: "NEW",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon14.png",
+        score: null,
+      },
+    },
+    {
+      id: 353,
+      dateUtcEpoch: 1652209200000,
+      hasScore: false,
+      home: {
+        teamId: 2,
+        threeLetterCode: "AVL",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon2.png",
+        score: null,
+      },
+      away: {
+        teamId: 11,
+        threeLetterCode: "LIV",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon11.png",
+        score: null,
+      },
+    },
+    {
+      id: 354,
+      dateUtcEpoch: 1652293800000,
+      hasScore: false,
+      home: {
+        teamId: 10,
+        threeLetterCode: "LEE",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon10.png",
+        score: null,
+      },
+      away: {
+        teamId: 6,
+        threeLetterCode: "CHE",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon6.png",
+        score: null,
+      },
+    },
+    {
+      id: 355,
+      dateUtcEpoch: 1652294700000,
+      hasScore: false,
+      home: {
+        teamId: 9,
+        threeLetterCode: "LEI",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon9.png",
+        score: null,
+      },
+      away: {
+        teamId: 15,
+        threeLetterCode: "NOR",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon15.png",
+        score: null,
+      },
+    },
+    {
+      id: 356,
+      dateUtcEpoch: 1652294700000,
+      hasScore: false,
+      home: {
+        teamId: 18,
+        threeLetterCode: "WAT",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon18.png",
+        score: null,
+      },
+      away: {
+        teamId: 8,
+        threeLetterCode: "EVE",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon8.png",
+        score: null,
+      },
+    },
+    {
+      id: 357,
+      dateUtcEpoch: 1652296500000,
+      hasScore: false,
+      home: {
+        teamId: 20,
+        threeLetterCode: "WOL",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon20.png",
+        score: null,
+      },
+      away: {
+        teamId: 12,
+        threeLetterCode: "MCI",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon12.png",
+        score: null,
+      },
+    },
+    {
+      id: 358,
+      dateUtcEpoch: 1652381100000,
+      hasScore: false,
+      home: {
+        teamId: 17,
+        threeLetterCode: "TOT",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon17.png",
+        score: null,
+      },
+      away: {
+        teamId: 1,
+        threeLetterCode: "ARS",
+        iconUrl:
+          "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon1.png",
         score: null,
       },
     },
@@ -268,7 +602,8 @@ export const topTransfersObject = {
     },
     {
       teamId: 11,
-      teamIconUrl: "images/teams/4.png",
+      teamIconUrl:
+        "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon17.png",
       playerId: 198,
       name: "Wilfried Zaha",
       amount: 152666,
@@ -312,7 +647,8 @@ export const topTransfersObject = {
     },
     {
       teamId: 2,
-      teamIconUrl: "images/teams/4.png",
+      teamIconUrl:
+        "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon17.png",
       playerId: 61,
       name: "Mason Mount",
       amount: 141646,
@@ -325,15 +661,15 @@ export const topPlayersObject = {
       teamId: 17,
       teamIconUrl: "images/teams/1.png",
       playerId: 520,
-      name: "Gabriel Jesus",
-      amount: 5,
+      name: "Gabriels goals",
+      amount: 12,
     },
     {
       teamId: 11,
       teamIconUrl: "images/teams/2.png",
       playerId: 198,
       name: "Heung-Min Son",
-      amount: 4,
+      amount: 14,
     },
   ],
 
@@ -342,15 +678,16 @@ export const topPlayersObject = {
       teamId: 17,
       teamIconUrl: "images/teams/3.png",
       playerId: 114,
-      name: "Chiquinho",
-      amount: 4,
+      name: "Chiquinho assists",
+      amount: 14,
     },
     {
       teamId: 11,
-      teamIconUrl: "images/teams/4.png",
+      teamIconUrl:
+        "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon17.png",
       playerId: 198,
       name: "Emiliano Buendía",
-      amount: 3,
+      amount: 13,
     },
   ],
 
@@ -359,15 +696,15 @@ export const topPlayersObject = {
       teamId: 17,
       teamIconUrl: "images/teams/5.png",
       playerId: 114,
-      name: "Heung-Min Son",
-      amount: 39,
+      name: "Heung-Min Son points",
+      amount: 139,
     },
     {
       teamId: 11,
       teamIconUrl: "images/teams/6.png",
       playerId: 198,
       name: "Raheem Sterling",
-      amount: 31,
+      amount: 131,
     },
   ],
 };
@@ -390,7 +727,7 @@ export const topTeamsObject = {
     },
   ],
 
-  assists: [
+  conceded: [
     {
       teamId: 17,
       teamIconUrl: "images/teams/3.png",
@@ -400,14 +737,15 @@ export const topTeamsObject = {
     },
     {
       teamId: 11,
-      teamIconUrl: "images/teams/4.png",
+      teamIconUrl:
+        "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon17.png",
       playerId: 198,
       name: "Emiliano Buendía",
       amount: 3,
     },
   ],
 
-  points: [
+  cleansheets: [
     {
       teamId: 17,
       teamIconUrl: "images/teams/1.png",
@@ -449,7 +787,8 @@ export const topTeamsFormObject = {
     {
       teamId: 4,
 
-      teamIconUrl: "images/teams/4.png",
+      teamIconUrl:
+        "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon17.png",
 
       name: "Crystal Palace FC",
       form: [
@@ -615,7 +954,8 @@ export const topTeamsFdrObject = {
     {
       teamId: 4,
 
-      teamIconUrl: "images/teams/4.png",
+      teamIconUrl:
+        "https://cuppy-team-assets-v1.fra1.digitaloceanspaces.com/icon17.png",
 
       name: "Newcastle",
       fdr: [

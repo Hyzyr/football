@@ -8,4 +8,5 @@ const rootReducer = combineReducers({
   team: teamReducer,
 });
 
+// eslint-disable-next-line
 export const store = createStore(rootReducer, applyMiddleware(thunk));

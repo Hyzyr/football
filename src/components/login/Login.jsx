@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Lander from "./Lander";
 import Subscribe from "./Subscribe";
 
-export default function Login() {
+const Login = () => {
   useEffect(() => {
     let body = document.body;
     body.classList.add("gradient");
@@ -23,4 +23,6 @@ export default function Login() {
       </div>
     </>
   );
-}
+};
+
+export default Login;

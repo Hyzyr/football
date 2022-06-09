@@ -105,11 +105,12 @@
       margin-bottom: 75px;
 
       h2 {
-        font-weight: 900;
+        font-weight: 700;
         line-height: 1.2;
         text-align: center;
 
         &:first-child {
+          font-weight: 900;
           color: $primary;
         }
       }
@@ -144,7 +145,7 @@
   }
 }
 // (max-width: 1366px)
-@mixin index-xxlg-xxxlg {
+@mixin login-xxxlg-xxxxlg {
   .lander {
     padding: 45px 0 30px 0;
     &__logo {
@@ -155,11 +156,13 @@
     &__inner {
       padding: 30px 50px;
       &-body {
+        max-width: 880px;
+        margin: 0 auto;
         &-content {
           max-width: 460px;
         }
         &-img {
-          max-width: 350px;
+          max-width: 340px;
         }
       }
     }
@@ -167,19 +170,11 @@
   .points {
     &__column {
       padding: 30px 15px;
+      margin: 0 8px;
+      width: calc(100% / 3 - 16px);
       p {
         max-width: 360px;
       }
-    }
-  }
-}
-
-// (max-width: 1280px)
-@mixin index-xlg-xxlg {
-  .points {
-    &__column {
-      margin: 0 8px;
-      width: calc(100% / 3 - 16px);
       &-image {
         margin-bottom: 20px;
       }
@@ -191,10 +186,31 @@
       }
     }
   }
+  .subscribe {
+    &__inner {
+      &-title {
+        margin-bottom: 50px;
+      }
+      &-form {
+        max-width: 780px;
+      }
+      .subscribeInput {
+        input {
+          height: 75px;
+          padding: 15px 160px 15px 20px;
+        }
+        button {
+          width: 150px;
+          font-size: 16px;
+        }
+      }
+      
+    }
+  }
 }
 
 // (max-width: 1024px)
-@mixin index-lg-xlg {
+@mixin login-lg-xlg {
   .points {
     &__row {
       margin: 0;
@@ -253,7 +269,7 @@
 }
 
 // (max-width: 768px)
-@mixin index-sm-md {
+@mixin login-sm-md {
   .lander {
     &__logo {
       .logo {
@@ -284,7 +300,7 @@
 }
 
 // (max-width: 660px)
-@mixin index-xsm-sm {
+@mixin login-xsm-sm {
   .lander {
     padding: 30px 0;
 
@@ -316,7 +332,7 @@
 }
 
 // (max-width: 540px)
-@mixin index-xxsm-xsm {
+@mixin login-xxsm-xsm {
   .lander {
     padding-bottom: 25px;
     &__inner {
@@ -352,7 +368,4 @@
       }
     }
   }
-}
-// (max-width: 400px)
-@mixin index-xxxxsm-xxxsm {
 }

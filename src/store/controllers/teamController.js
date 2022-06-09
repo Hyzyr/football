@@ -1,22 +1,53 @@
-import { teamObject } from "./tetsData";
+import { teamObject, teamObject2 } from "./tetsData";
 import * as actions from "../interfaces/teamInterface";
 
-const waiter = async () => {
+const waiter = async (timout = 1000) => {
   const prom = new Promise((myResolve) => {
-    setTimeout(() => myResolve(), 1000);
+    setTimeout(() => myResolve(), timout);
   });
   return prom;
 };
 
-export const linkTeam = () => async (dispatch, getState) => {
-  await waiter();
+export const linkTeam =
+  (teamId, errorMessage = null) =>
+  async (dispatch, getState) => {
+    dispatch({
+      type: actions.setFieldState,
+      state: "loading",
+    });
+    await waiter(3000);
+    if (errorMessage) {
+      dispatch({
+        type: actions.setStateError,
+        message: errorMessage,
+      });
 
+      return;
+    }
+
+    let newTeamData =
+      getState().team.teamData !== teamObject ? teamObject : teamObject2;
+    dispatch({
+      type: actions.setTeamData,
+      data: newTeamData,
+    });
+    dispatch({
+      type: actions.setHasTeam,
+      state: true,
+    });
+    dispatch({
+      type: actions.setFieldState,
+      state: "",
+    });
+  };
+
+export const clearTeamError = () => (dispatch) => {
   dispatch({
-    type: actions.setTeamData,
-    data: teamObject,
+    type: actions.setFieldState,
+    state: "",
   });
   dispatch({
-    type: actions.setHasTeam,
-    state: true,
+    type: actions.setErrorMessage,
+    message: "",
   });
 };

@@ -1,11 +1,13 @@
-// (max-width: 1366px)
-@include xxlg-xxxlg {
-  @include index-xxlg-xxxlg;
+// (max-width: 1760px)
+@include xxxlg-xxxxlg {
+  .auto__container {
+    max-width: 1040px;
+  }
+  @include typography-xxxlg-xxxxlg;
+  @include login-xxxlg-xxxxlg;
+  @include index-xxxlg-xxxxlg;
 }
-// (max-width: 1280px)
-@include xlg-xxlg {
-  @include index-xlg-xxlg;
-}
+
 // (max-width: 1180px)
 @include xlg-xxlg-extra {
   @include index-xlg-xxlg-extra;
@@ -15,9 +17,9 @@
   .auto__container {
     padding: 0 20px;
   }
-  @include typography-lg-xlg;
   @include header-lg-xlg;
   @include index-lg-xlg;
+  @include login-lg-xlg;
 }
 // (max-width: 840px)
 @include md-lg {
@@ -36,11 +38,68 @@
   @include header-sm-md;
   @include footer-sm-md;
   @include index-sm-md;
+  @include login-sm-md;
+  .lander {
+    &__logo {
+      .logo {
+        width: 130px;
+      }
+    }
+    &__inner {
+      &-body {
+        display: flex;
+        flex-direction: column;
+
+        &-content {
+          width: 100%;
+          text-align: center;
+          margin-bottom: 30px;
+          max-width: 550px;
+          h3 {
+            margin-bottom: 0.5em;
+          }
+        }
+        &-img {
+          width: 90%;
+          max-width: 240px;
+        }
+      }
+    }
+  }
 }
 // (max-width: 660px)
 @include xsm-sm {
   @include typography-xsm-sm;
   @include index-xsm-sm;
+  @include login-xsm-sm;
+  .lander {
+    padding: 30px 0;
+
+    &__logo {
+      margin-bottom: 20px;
+
+      .logo {
+        width: 115px;
+      }
+    }
+    &__inner {
+      padding: 30px;
+    }
+  }
+  .points {
+    &__column {
+      padding: 25px 30px;
+    }
+  }
+  .subscribe {
+    padding: 40px 0 30px 0;
+  }
+  .banner {
+    padding: 20px 0;
+    &::before {
+      height: 35%;
+    }
+  }
   .popup {
     position: relative;
     padding: 15px 20px;
@@ -50,10 +109,16 @@
     &.loading {
       .popup {
         &__content {
+          &-loader {
+            box-sizing: border-box;
+            height: calc(100% - 45px);
+            padding-bottom: 10px;
+            margin: 0;
+          }
           label {
             display: none;
           }
-          input {
+          .customInput {
             display: none;
           }
         }
@@ -101,6 +166,11 @@
         margin-left: auto;
       }
     }
+    &--small{
+      min-height: 100px;
+      padding: 30px 15px;
+
+    }
   }
   .help {
     &__text {
@@ -121,16 +191,20 @@
 @include xxsm-xsm {
   @include header-xxsm-xsm;
   @include index-xxsm-xsm;
+  @include login-xxsm-xsm;
 }
 
 // (max-width: 480px)
 @include xxxsm-xxsm {
+  .auto__container {
+    padding: 0 15px;
+  }
   @include index-xxxsm-xxsm;
 }
 // (max-width: 400px)
 @include xxxxsm-xxxsm {
   .auto__container {
-    padding: 0 15px;
+    padding: 0 13px;
   }
   .popup {
     padding: 10px;

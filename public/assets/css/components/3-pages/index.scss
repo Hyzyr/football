@@ -13,9 +13,6 @@
       border-radius: 10px;
       width: calc(100% - 310px - 24px);
 
-      .manager__title {
-        padding: 0 33px;
-      }
       &-body {
         padding: 30px 33px 50px 33px;
       }
@@ -76,7 +73,7 @@
       }
     }
     &-row {
-      width: 310px;
+      width: 100%;
     }
     &-column {
       width: 100%;
@@ -90,6 +87,7 @@
       }
     }
     &-group {
+      width: 310px;
       .manager__title {
         background: $white;
         border-radius: 10px 10px 0 0;
@@ -101,7 +99,7 @@
     align-items: center;
     justify-content: space-between;
     height: 68px;
-    padding: 0 23px;
+    padding: 0 33px;
     border-bottom: 1px solid rgba($black, 7%);
 
     .timer {
@@ -611,6 +609,39 @@
   }
 }
 
+// (max-width: 1760px)
+@mixin index-xxxlg-xxxxlg {
+  .manager {
+    &__inner {
+      &-field {
+        width: calc(100% - 280px - 20px);
+
+        &-body {
+          padding: 28px 30px 45px 30px;
+        }
+      }
+      &-group {
+        width: 280px;
+      }
+    }
+    &__list {
+      &-title {
+        padding: 15px 23px;
+      }
+      &-item {
+        padding: 13px 0px;
+        &-ico {
+          width: 32px;
+          height: 35.5px;
+        }
+      }
+    }
+    &__title {
+      padding: 0 30px;
+    }
+  }
+}
+
 // (max-width: 1280px)
 @mixin index-xlg-xxlg-extra {
   .manager {
@@ -644,6 +675,7 @@
         display: flex;
         flex-wrap: wrap;
         margin: 0 -6px;
+        width: 100%;
         .manager__title {
           width: 100%;
           background: transparent;
@@ -848,6 +880,7 @@
     }
     &__list {
       &-item {
+        justify-content: space-around;
         padding: 15px 25px;
         &-ico {
           &:first-child {
@@ -856,9 +889,6 @@
           &:last-child {
             margin-left: 15px;
           }
-        }
-        &-score {
-          margin: 0 auto;
         }
       }
     }
@@ -1046,6 +1076,14 @@
         }
       }
     }
+    &__list {
+      &-item {
+        justify-content: unset;
+        &-score {
+          margin: 0 auto;
+        }
+      }
+    }
     &__drop {
       & > button {
         padding: 7px 10px;
@@ -1081,6 +1119,17 @@
               border-radius: 1px;
             }
           }
+        }
+      }
+    }
+  }
+  .popup {
+    &__content {
+      &-loader {
+        .spinner {
+          width: 30px;
+          height: 30px;
+          margin-right: 12px;
         }
       }
     }
@@ -1130,6 +1179,11 @@
     &__title {
       .timer {
         font-size: 18px;
+      }
+    }
+    &__list {
+      &-item {
+        // padding: ;
       }
     }
   }

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setUserLogged } from "store/interfaces/appInterface";
 
-export default function Subscribe() {
+const Subscribe = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [value, setValue] = useState("");
@@ -15,6 +15,7 @@ export default function Subscribe() {
     dispatch({
       type: setUserLogged,
       state: true,
+      user: value,
     });
     navigate("/");
   };
@@ -28,7 +29,7 @@ export default function Subscribe() {
               <h2>Subscribe</h2>
               <h2>for launching updates</h2>
             </div>
-            <div className="subscribe__inner-form  wow  fadeInUp" >
+            <div className="subscribe__inner-form  wow  fadeInUp">
               <div className="subscribeInput">
                 <input
                   type="text"
@@ -56,4 +57,6 @@ export default function Subscribe() {
       </div>
     </>
   );
-}
+};
+
+export default Subscribe;

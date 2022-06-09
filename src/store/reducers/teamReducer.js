@@ -3,10 +3,28 @@ import * as actions from "../interfaces/teamInterface.js";
 const initialState = {
   hasTeam: false,
   teamData: null,
+  fieldState: "",
+  errorMessage: "",
 };
 
 const teamReducer = (state = initialState, action) => {
   switch (action.type) {
+    case actions.setFieldState:
+      return {
+        ...state,
+        fieldState: action.state,
+      };
+    case actions.setStateError:
+      return {
+        ...state,
+        fieldState: "error",
+        errorMessage: action.message,
+      };
+    case actions.setErrorMessage:
+      return {
+        ...state,
+        errorMessage: action.message,
+      };
     case actions.setHasTeam:
       return {
         ...state,

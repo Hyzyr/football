@@ -8,26 +8,25 @@ import MainIndex from "./MainIndex";
 import Message from "components/items/Message";
 import WOW from "wowjs";
 
-const Main = ({ dataInitialized }) => {
+const Main = ({ appState, errorMessage, dataInitialized }) => {
   const dispatch = useDispatch();
   new WOW.WOW({
     live: false,
   }).init();
-  
+
   global.SVG = SVG;
 
   //init data once it enters to this page
   useEffect(() => {
     dispatch(appActions.fetchAll());
   }, []);
-  const error = false;
 
   return (
     <>
       <Header></Header>
-      {error ? (
-        <Message text="Error: Be carefull next time!" />
-      ) : !dataInitialized ? (
+      {appState === "error" ? (
+        <Message text={errorMessage ?? "Error: unknown error"} />
+      ) : !dataInitialized || appState === "fetching" ? (
         <Loader />
       ) : (
         <MainIndex />
@@ -37,6 +36,8 @@ const Main = ({ dataInitialized }) => {
 };
 
 const mapStateToProps = (state) => ({
+  appState: state.app.appState,
+  errorMessage: state.app.errorMessage,
   dataInitialized: state.app.dataInitialized,
 });
 

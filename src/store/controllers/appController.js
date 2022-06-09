@@ -1,13 +1,11 @@
-import { setTeamData } from "store/interfaces/teamInterface";
 import * as actions from "../interfaces/appInterface";
 import {
-  fixturesObject,
   topTransfersObject,
   topPlayersObject,
   topTeamsObject,
   topTeamsFormObject,
   topTeamsFdrObject,
-  teamObject,
+  fixturesObjectMax,
 } from "./tetsData";
 
 const waiter = async () => {
@@ -18,15 +16,29 @@ const waiter = async () => {
 };
 
 export const fetchAll = () => async (dispatch, getState) => {
-  await waiter();
-
+  // starts fetching
   dispatch({
-    type: setTeamData,
-    data: teamObject,
+    type: actions.setAppState,
+    state: "fetching",
   });
+
+  // simulate wait
+  await waiter();
+  
+  // show error for testing
+  const userName = getState().app.userName;
+  if (userName.startsWith("error:")) {
+    dispatch({
+      type: actions.setStateError,
+      data: userName,
+    });
+    return;
+  }
+ 
   dispatch({
     type: actions.setGameweekData,
-    data: fixturesObject,
+    // data: fixturesObject,
+    data: fixturesObjectMax,
   });
   dispatch({
     type: actions.setTopTransfers,
@@ -53,5 +65,9 @@ export const fetchAll = () => async (dispatch, getState) => {
   dispatch({
     type: actions.setDataInitialized,
     state: true,
+  });
+  dispatch({
+    type: actions.setAppState,
+    state: "",
   });
 };

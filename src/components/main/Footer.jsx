@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Footer() {
+const Footer = () => {
   return (
     <footer className="footer sticky">
       <div className="auto__container">
@@ -19,3 +19,4 @@ export default function Footer() {
     </footer>
   );
 }
+export default  Footer

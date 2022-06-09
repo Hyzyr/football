@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setUserLogged } from "store/interfaces/appInterface";
 
-export default function Header() {
+const Header = () => {
   const [drop, setDrop] = useState(false);
   const [menu, setMenu] = useState(false);
   const [sticky, setSticky] = useState(false);
@@ -52,13 +52,13 @@ export default function Header() {
     else {
       window.removeEventListener("click", closeDrop);
     }
-  }, [drop]);
+  }, [drop, closeDrop]);
 
   useEffect(() => {
     window.addEventListener("scroll", makeSticky);
 
     return () => window.removeEventListener("scroll", makeSticky);
-  }, []);
+  }, [makeSticky]);
 
   return (
     <>
@@ -139,4 +139,6 @@ export default function Header() {
       <div className="headerSpace"></div>
     </>
   );
-}
+};
+
+export default Header;

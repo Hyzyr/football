@@ -1,16 +1,16 @@
 import React from "react";
 
-export default function Loader() {
+const Loader = () => {
   return (
     <div className="spinner__outer">
       <Spinner />
     </div>
   );
-}
+};
 
-export const Spinner = () => <div className="spinner">{spinnerSVG}</div>;
+const Spinner = () => <div className="spinner">{spinnerSVG}</div>;
 
-export const spinnerSVG = (
+const spinnerSVG = (
   <svg
     width="67"
     height="67"
@@ -27,3 +27,6 @@ export const spinnerSVG = (
     />
   </svg>
 );
+
+export { Spinner, spinnerSVG };
+export default Loader;

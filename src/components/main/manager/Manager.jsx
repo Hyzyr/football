@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import CountDown from "components/items/CountDown";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import Field from "./Field";
 import Help from "./Help";
+import { linkTeam } from "store/controllers/teamController";
 
 const Manager = ({ hasTeam, meta, gameweek, children }) => {
   return (
@@ -38,10 +39,28 @@ const ManagerTitle = ({ date }) => {
 };
 const ManagerTeamDetails = ({ data }) => {
   const [drop, setDrop] = useState(false);
+  const [value, setValue] = useState("");
+  const [errorShown, setErrorShown] = useState(false); // this is only for test purposes
+  const dispatch = new useDispatch();
 
+  const onChange = (e) => {
+    setValue(e.target.value);
+  };
+
+  const changeTeam = () => {
+    if (!errorShown) {
+      // this is only for test purposes
+      setErrorShown(true);
+      dispatch(linkTeam(null, "Error happend in popup"));
+    } else {
+      dispatch(linkTeam(null));
+    }
+    setDrop(false);
+  };
   const toggleDrop = () => {
     setDrop(!drop);
   };
+
   return (
     <div className="manager__inner-field-details">
       <div className="manager__inner-field-details-header">
@@ -57,9 +76,16 @@ const ManagerTeamDetails = ({ data }) => {
           <div className="manager__drop-box">
             <Help infoIcon text={"How to find my FPL id?"} />
             <div className="customInput">
-              <input type="text" placeholder="Enter FPL ID" />
+              <input
+                type="text"
+                placeholder="Enter FPL ID"
+                value={value}
+                onChange={onChange}
+              />
             </div>
-            <button className="button button--main">Submit</button>
+            <button className="button button--main" onClick={changeTeam}>
+              Submit
+            </button>
           </div>
         </div>
       </div>

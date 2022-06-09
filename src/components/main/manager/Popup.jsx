@@ -1,36 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Spinner } from "components/items/Loader";
-import { useDispatch } from "react-redux";
-import { linkTeam } from "store/controllers/teamController";
 import Help from "./Help";
 
-const Popup = () => {
-  const [state, setState] = useState("form");
+const Popup = ({ state, errorMessage, submitFunc }) => {
+  const [currentState, setCurrentState] = useState("");
   const [value, setValue] = useState("");
-  const [errorShown, setErrorShown] = useState(false);
 
-  const dispatch = useDispatch();
+  useEffect(() => {
+    setCurrentState(state);
+  }, [state]);
 
   let addClass = " fadeInUp ";
-  if (state === "loading") addClass += " loading";
+  if (currentState === "loading") addClass += " loading";
 
-  const inputDisabled = state === "loading";
+  const inputDisabled = currentState === "loading";
   const onChange = (e) => {
     e.preventDefault();
     setValue(e.target.value);
   };
   const onSubmit = () => {
-    if (!errorShown) {
-      // this is only for test purposes
-      setErrorShown(true);
-      setState("error");
-    } else {
-      setState("loading");
-      dispatch(linkTeam());
-    }
+    submitFunc(value);
   };
   const onFocus = () => {
-    setState("form");
+    setCurrentState("");
   };
 
   return (
@@ -58,26 +50,55 @@ const Popup = () => {
         </div>
         <button
           onClick={onSubmit}
-          disabled={state !== "form"}
+          disabled={currentState !== ""}
           className="button button--main"
         >
           Submit
         </button>
-        {state === "loading" && (
+        {currentState === "loading" && (
           <div className="popup__content-loader">
             <Spinner />
             <strong>Importing your Team</strong>
           </div>
         )}
-        {state === "error" && (
-          <div className="popup__content-error">
-            Error: somethin went wrong!
-          </div>
+        {currentState === "error" && (
+          <div className="popup__content-error">Error: {errorMessage}</div>
         )}
       </div>
-      {state !== "loading" && <Help />}
+      {currentState !== "loading" && <Help />}
     </div>
   );
 };
 
+const PopupSmall = ({ state, errorMessage, onClose }) => {
+  const close = () => {
+    if (onClose) {
+      onClose();
+    }
+  };
+
+  return (
+    <div className={`popup  popup--small wow ${state}`} data-wow-delay=".2s">
+      <button className="popup__close" onClick={close}>
+        <span className="custIcon custIcon--cross"></span>
+      </button>
+      <div className="popup__content">
+        {state === "loading" && (
+          <>
+            <Spinner />
+            <strong>Importing your Team</strong>
+          </>
+        )}
+        {state === "error" && (
+          <>
+            <strong>Oops... Something went wrong</strong>
+            <strong>{errorMessage}</strong>
+          </>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export { PopupSmall };
 export default Popup;

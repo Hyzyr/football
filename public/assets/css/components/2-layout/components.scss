@@ -248,6 +248,7 @@
 }
 
 .popup {
+  position: relative;
   cursor: context-menu;
   display: flex;
   flex-wrap: wrap;
@@ -333,9 +334,67 @@
       width: 100%;
     }
   }
+  &__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
   .help {
     margin-top: 15px;
     padding-left: 170px;
+  }
+  &--small {
+    padding: 30px 25px;
+    width: unset !important;
+    width: fit-content !important;
+    display: flex;
+    align-items: center;
+    max-width: 285px;
+    min-height: 165px;
+
+    &.loading {
+      padding: 20px 25px;
+      min-height: unset;
+
+      .popup{
+        &__close {
+          display: none;
+        }
+        &__content {
+          align-items: center;
+        }
+      }
+    }
+    .popup__content {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: unset;
+    }
+    .spinner {
+      width: 33px;
+      height: 33px;
+      margin: 0 0 15px 0;
+    }
+    strong {
+      color: $black;
+      font-family: $font-main;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 19px;
+      &:last-child {
+        margin-top: 5px;
+      }
+    }
   }
 }
 
@@ -476,38 +535,6 @@
   }
 }
 
-// .link {
-//   cursor: pointer;
-//   color: $primary;
-//   font-family: $font-main;
-//   font-weight: 700;
-//   @include transition;
-
-//   &--underline {
-//     text-decoration: underline;
-//   }
-//   &:hover {p
-//     opacity: 0.7;
-//     text-decoration: none;
-//   }
-// }
-
-// .circleIco {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   border-radius: 50%;
-//   width: 30px;
-//   height: 30px;
-//   box-sizing: border-box;
-//   background: $primary;
-//   color: $white;
-//   svg {
-//     width: 65%;
-//     height: auto;
-//   }
-// }
-
 .customInput {
   position: relative;
 
@@ -559,252 +586,6 @@
   }
 }
 
-// .customText {
-//   position: relative;
-
-//   textarea {
-//     position: relative;
-//     cursor: context-menu;
-//     box-sizing: border-box;
-//     width: 100%;
-//     padding: 14px 30px;
-//     border-radius: 5px;
-//     border: 1px solid $white-1;
-//     transition: 0.2s ease-in-out;
-//     transition-property: border-color;
-//     z-index: 1;
-//     resize: none;
-//     min-height: 180px;
-
-//     ///font
-//     color: $black;
-//     font-family: $font-main;
-//     font-size: 16px;
-//     font-weight: 400;
-//     line-height: 1.5;
-//     caret-color: $primary;
-
-//     &::placeholder {
-//       color: $gray;
-//       font-size: 16px;
-//       font-weight: 500;
-//     }
-
-//     &:not(:placeholder-shown),
-//     &:focus {
-//       cursor: text;
-
-//       & ~ label {
-//         cursor: text;
-//         top: -1px;
-//         background: $white;
-
-//         //font
-//         font-size: 12px;
-//         color: rgba($color: $gray, $alpha: 0.8);
-//       }
-//     }
-
-//     &:focus {
-//       border-color: $primary;
-
-//       & ~ label {
-//         color: $primary;
-//       }
-//     }
-//   }
-
-//   label {
-//     position: absolute;
-//     z-index: 1;
-//     top: 50%;
-//     left: 30px;
-//     transform: translateY(-50%);
-//     pointer-events: none;
-//     padding: 0 5px;
-
-//     //font
-//     color: $gray;
-//     font-family: $font-main;
-//     font-size: 16px;
-//     font-weight: 500;
-//     line-height: 1;
-//     transition: 0.2s cubic-bezier(0, 0, 0.2, 0);
-//   }
-// }
-
-// .customSelect {
-//   position: relative;
-
-//   &__label {
-//     display: flex;
-//     align-items: center;
-//     position: relative;
-//     cursor: pointer;
-//     box-sizing: border-box;
-//     width: 100%;
-//     padding: 0 30px;
-//     height: 50px;
-//     border-radius: 5px;
-//     border: 1px solid $white-1;
-//     transition: 0.2s ease-in-out;
-//     transition-property: border-color, color;
-//     z-index: 1;
-//     ///font
-//     color: $gray;
-//     font-size: 16px;
-//     font-weight: 500;
-//     line-height: 1;
-
-//     &:after {
-//       content: "";
-//       position: absolute;
-//       display: block;
-//       top: 50%;
-//       right: 18px;
-//       border-top: 5px solid $gray;
-//       border-right: 5px solid transparent;
-//       border-left: 5px solid transparent;
-//       transform: translateY(-50%);
-//       transition: all 0.3s ease-in-out;
-//     }
-//     &:hover {
-//       color: $primary;
-//       border-color: $primary;
-//       &:after {
-//         border-top-color: $primary;
-//       }
-//     }
-//     // color: $black;
-//     // font-family: $font-main;
-//     // font-size: 16px;
-//   }
-//   &__list {
-//     position: absolute;
-//     box-sizing: border-box;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     padding: 20px 25px;
-//     border-radius: 5px;
-//     overflow: hidden;
-//     opacity: 0;
-//     max-height: 0;
-//     transition: 0.4s ease-in-out;
-//     transition-property: max-height, opacity;
-//     overflow-y: auto;
-//     @include hideScrollBar;
-
-//     &-item {
-//       cursor: pointer;
-//       box-sizing: border-box;
-//       width: 100%;
-//       padding: 10px 30px;
-//       transition: 0.2s ease-in-out;
-//       transition-property: background-color;
-
-//       //font
-//       color: $black;
-//       font-family: $font-main;
-//       font-size: 14px;
-//       font-weight: 400;
-//       line-height: 1;
-//       &:first-child {
-//         border-radius: 3px 3px 0 0;
-//       }
-//       &:last-child {
-//         border-radius: 0 0 3px 3px;
-//       }
-//       &:hover {
-//         background-color: $white-1;
-//       }
-//       &.active {
-//         background-color: $white-1;
-//       }
-//     }
-//   }
-
-//   &.active {
-//     z-index: 2;
-//     .customSelect {
-//       &__label {
-//         opacity: 0;
-//         // color: $primary;
-//         // border-color: $primary;
-//         // &:after {
-//         //   border-top-color: $primary;
-//         //   transform: translateY(-50%) rotate(-180deg);
-//         // }
-//       }
-//       &__list {
-//         max-height: 300px;
-//         background: $white;
-//         z-index: 2;
-//         opacity: 1;
-//       }
-//     }
-//   }
-// }
-// .customLabel {
-//   display: block;
-//   font-family: $font-main;
-//   font-style: normal;
-//   font-weight: 400;
-//   font-size: 14px;
-//   line-height: 1;
-//   color: $gray;
-//   margin-bottom: 15px;
-// }
-// .customCheck {
-//   position: relative;
-//   height: 17px;
-//   width: 17px;
-//   flex-shrink: 0;
-//   flex-grow: 0;
-//   input {
-//     cursor: pointer;
-//     position: absolute;
-//     display: block;
-//     top: 0;
-//     left: 0;
-//     height: 100%;
-//     width: 100%;
-//     opacity: 0;
-//     z-index: 1;
-
-//     &:hover + label {
-//       background: rgba($color: $gray, $alpha: 0.8);
-//     }
-//     &:checked + label {
-//       background: $primary;
-//     }
-//   }
-//   label {
-//     position: absolute;
-//     display: block;
-//     top: 0;
-//     left: 0;
-//     height: 100%;
-//     width: 100%;
-//     border-radius: 3px;
-//     background: $white-1;
-//     transition: 0.3s ease-in-out;
-//     transition-property: background-color;
-
-//     &:after {
-//       content: "";
-//       display: block;
-//       position: absolute;
-//       top: calc(50% - 1px);
-//       left: 50%;
-//       width: 32%;
-//       height: 60%;
-//       border-bottom: 2px solid $white;
-//       border-right: 2px solid $white;
-//       transform: translate(-50%, -50%) rotate(40deg);
-//     }
-//   }
-// }
 .custIcon {
   position: relative;
   display: inline-block;
@@ -829,37 +610,6 @@
       transform: translate(-50%, -75%) rotate(-45deg);
     }
   }
-  // &--back {
-  //   &::before {
-  //     content: "";
-  //     display: block;
-  //     position: absolute;
-  //     top: 50%;
-  //     left: 50%;
-  //     width: 75%;
-  //     height: 75%;
-  //     background: transparent;
-  //     border-left: 2px solid $primary;
-  //     border-bottom: 2px solid $primary;
-  //     transform: translate(-25%, -50%) rotate(45deg);
-  //   }
-  // }
-  // &--next {
-  //   &::before {
-  //     content: "";
-  //     display: block;
-  //     position: absolute;
-  //     top: 50%;
-  //     left: 50%;
-  //     width: 75%;
-  //     height: 75%;
-  //     background: transparent;
-  //     border-right: 2px solid $primary;
-  //     border-top: 2px solid $primary;
-  //     transform: translate(-75%, -50%) rotate(45deg);
-  //   }
-  // }
-
   &--up {
     &::before {
       content: "";
@@ -888,314 +638,39 @@
       transition: all 0.3s ease-in-out;
     }
   }
-  // &--error {
-  //   &:before,
-  //   &:after {
-  //     content: "";
-  //     display: block;
-  //     position: absolute;
-  //     top: 50%;
-  //     left: 50%;
-  //     width: 2px;
-  //     height: 100%;
-  //     background: $red;
-  //   }
-  //   &:before {
-  //     transform: translate(-50%, -50%) rotate(45deg);
-  //   }
-  //   &:after {
-  //     transform: translate(-50%, -50%) rotate(-45deg);
-  //   }
-  // }
-  // &--success {
-  //   margin-right: 5px;
+  &--cross {
+    &:before,
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      background: $black;
+    }
+    &:before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+    &:after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+  &--success {
+    margin-right: 5px;
 
-  //   &:after {
-  //     content: "";
-  //     display: block;
-  //     position: absolute;
-  //     top: 50%;
-  //     left: 50%;
-  //     width: 45%;
-  //     height: 80%;
-  //     border-bottom: 2px solid $green;
-  //     border-right: 2px solid $green;
-  //     transform: translate(-50%, -50%) rotate(45deg);
-  //   }
-  // }
-
-  // &--dots {
-  //   font-size: 5px;
-  //   width: 1em;
-  //   height: 1em;
-  //   border-radius: 50%;
-  //   background: $black-01;
-  //   transition: 0.2s ease-in;
-  //   &:before,
-  //   &:after {
-  //     content: "";
-  //     display: block;
-  //     position: absolute;
-  //     top: 0;
-  //     width: 1em;
-  //     height: 1em;
-  //     border-radius: 50%;
-  //     background: inherit;
-  //     transition: 0.2s ease-in;
-  //   }
-  //   &:before {
-  //     left: calc(100% + 0.75em);
-  //   }
-  //   &:after {
-  //     right: calc(100% + 0.75em);
-  //   }
-  //   &.active {
-  //     width: 4.5em;
-  //     border-radius: 2px;
-  //     &:before,
-  //     &:after {
-  //       opacity: 0;
-  //     }
-  //   }
-  // }
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 45%;
+      height: 80%;
+      border-bottom: 2px solid $green;
+      border-right: 2px solid $green;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  }
 }
-// .customList {
-//   li {
-//     position: relative;
-//     padding-left: 25px;
-//     margin-bottom: 20px;
-//     //font
-//     color: rgba($color: $black-0, $alpha: 0.8);
-//     font-family: $font-main;
-//     font-style: normal;
-//     font-weight: 400;
-//     font-size: 14px;
-//     line-height: 1.7;
-
-//     &:last-child {
-//       margin-bottom: 0;
-//     }
-//     &::before {
-//       content: "";
-//       position: absolute;
-//       top: 6px;
-//       left: 3px;
-//       width: 9px;
-//       height: 9px;
-//       border-radius: 50%;
-//       background-color: $primary;
-//     }
-//   }
-// }
-// .inlineInput {
-//   &__label {
-//     color: $gray;
-//     font-family: $font-main;
-//     font-style: normal;
-//     font-weight: 400;
-//     font-size: 14px;
-//     line-height: 1;
-//   }
-//   &__input {
-//     position: relative;
-
-//     input {
-//       position: relative;
-//       cursor: context-menu;
-//       box-sizing: border-box;
-//       width: 100%;
-//       height: 50px;
-//       padding: 10px 0 15px 0;
-//       border-bottom: 1px solid $lightblue;
-//       transition: 0.2s ease-in-out;
-//       transition-property: border-color;
-//       z-index: 1;
-//       ///font
-//       color: $gray;
-//       font-family: $font-main;
-//       font-style: normal;
-//       font-weight: 700;
-//       font-size: 16px;
-//       line-height: 1;
-
-//       &::placeholder {
-//         font-weight: 500;
-//       }
-
-//       &:not(:placeholder-shown),
-//       &:focus {
-//         cursor: text;
-
-//         & ~ label {
-//           cursor: text;
-//           top: -1px;
-//           background: $white;
-
-//           //font
-//           font-size: 12px;
-//           color: rgba($color: $gray, $alpha: 0.8);
-//         }
-//         & ~ .icon {
-//           color: rgba($color: $gray, $alpha: 0.8);
-//         }
-//       }
-
-//       &:focus {
-//         color: $black;
-//         border-color: $primary;
-
-//         & ~ label {
-//           color: $primary;
-//         }
-//         & ~ .icon {
-//           color: $primary;
-//         }
-//       }
-//     }
-//     .icon {
-//       cursor: pointer;
-//       position: absolute;
-//       color: $gray;
-//       bottom: 13px;
-//       right: 0;
-//       width: 16px;
-//       height: 16px;
-//       padding: 5px;
-//       z-index: 1;
-//       transition: 0.2s ease;
-//       &:hover {
-//         color: $primary !important;
-//       }
-//       svg {
-//         color: inherit;
-//         width: 90%;
-//         height: auto;
-//         max-height: 90%;
-//       }
-//     }
-//   }
-// }
-
-// .customFile {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   flex-direction: column;
-//   background: $white-1;
-//   border: 2px dashed $primary;
-//   border-radius: 12px;
-//   box-sizing: border-box;
-//   width: 100%;
-//   padding: 25px;
-//   color: $primary;
-//   transition: 0.2s ease-out;
-//   transition-property: border-color, color;
-
-//   &.active {
-//     color: $secondary;
-//     border-color: $secondary;
-//     .button {
-//       opacity: 0.4;
-//     }
-//   }
-//   &__ico {
-//     color: inherit;
-//     width: 25px;
-//     height: auto;
-//     margin-bottom: 10px;
-//     svg {
-//       color: inherit;
-//     }
-//   }
-//   &__para {
-//     color: $gray;
-//     font-family: $font-main;
-//     font-style: normal;
-//     font-weight: 400;
-//     font-size: 14px;
-//     line-height: 1;
-//     text-align: center;
-//   }
-//   .button {
-//     height: 30px;
-//     padding: 0 10px;
-//     margin-top: 20px;
-//     //font
-//     font-family: $font-main;
-//     font-style: normal;
-//     font-weight: 500;
-//     font-size: 12px;
-//   }
-//   input[type="file"] {
-//     display: none;
-//   }
-// }
-// .button {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   border-radius: 5px;
-//   font-family: $font-main;
-//   font-weight: 500;
-//   font-size: 14px;
-//   transition: 0.25s ease-in-out;
-
-//   &:hover {
-//     opacity: 0.8;
-//   }
-
-//   .icon {
-//     font-size: inherit;
-//     display: flex;
-//     margin-right: 0.5em;
-
-//     svg {
-//       width: 1em;
-//       height: auto;
-//       max-height: 1em;
-//     }
-//   }
-//   &--main {
-//     color: $white;
-//     background: $primary;
-//   }
-//   &--delete {
-//     color: $red;
-//     background: $white;
-//     border: 2px solid rgba($color: $lightblue, $alpha: 0.6);
-//     border-radius: 10px;
-//     padding: 15px;
-//     //font
-//     font-family: $font-main;
-//     font-style: normal;
-//     font-weight: 700;
-//     font-size: 16px;
-//     line-height: 19px;
-
-//     &:hover {
-//       opacity: 1;
-//       background: rgba($color: $red, $alpha: 0.05);
-//       border-color: rgba($color: $red, $alpha: 0.5);
-//     }
-//     &:active {
-//       background: $white;
-//     }
-//   }
-//   &--secondary {
-//     color: $primary;
-//     background: $white-1;
-//   }
-// }
-
-// .profilePic {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   width: 40px;
-//   height: 40px;
-//   border-radius: 6px;
-//   overflow: hidden;
-//   img {
-//     @include fullImage;
-//   }
-// }

@@ -1,12 +1,13 @@
 import React from "react";
+import Img from "components/items/Img";
 
-export default function List({
+const List = ({
   title,
   subtitles,
   data,
   type = "amount",
   badgesKey = "form",
-}) {
+}) => {
   return (
     <div className="info__inner-list">
       <div className="info__inner-list-title">{title}</div>
@@ -18,10 +19,7 @@ export default function List({
         <div className="info__inner-list-item" key={index}>
           <div className="info__team">
             <div className="info__team-ico">
-              <img
-                src={global.assetsFolder + item.teamIconUrl}
-                alt="team-ico"
-              />
+              <Img src={item.teamIconUrl} alt="team-ico" />
             </div>
             <div className="info__inner-list-item-text">
               <span>{item.name}</span>
@@ -52,4 +50,6 @@ export default function List({
       ))}
     </div>
   );
-}
+};
+
+export default List;

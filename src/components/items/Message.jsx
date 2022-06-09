@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Message({ type = "error", text = "error" }) {
+const Message = ({ type = "error", text = "error" }) => {
   let addClass = "";
   if (type === "error") addClass += " message--error";
   if (type === "success") addClass += " message--success";
@@ -11,4 +11,6 @@ export default function Message({ type = "error", text = "error" }) {
       <div className={`message ${addClass}`}>{text}</div>
     </div>
   );
-}
+};
+
+export default Message;

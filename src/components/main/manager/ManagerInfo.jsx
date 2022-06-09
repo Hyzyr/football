@@ -10,15 +10,25 @@ const ManagerInfo = ({ title, fixtures }) => {
       const gorupedData = {};
 
       fixtures.fixtures.forEach((item) => {
-        if (!gorupedData[item.dateUtcEpoch])
-          gorupedData[item.dateUtcEpoch] = [];
+        let dateEpoch = getDateEpoch(item.dateUtcEpoch);
+        if (!gorupedData[dateEpoch]) gorupedData[dateEpoch] = [];
 
-        gorupedData[item.dateUtcEpoch].push(item);
+        gorupedData[dateEpoch].push(item);
       });
       setData(gorupedData);
     }
   }, [fixtures]);
-  
+  const getDateEpoch = (date) => {
+    let d = new Date(date);
+    let month = d.getMonth() + 1;
+    let returnDate = new Date(
+      `${d.getFullYear()}-${month < 10 ? "0" + month : month}-${
+        d.getDate() < 10 ? "0" + d.getDate() : d.getDate()
+      }`
+    );
+
+    return returnDate.getTime();
+  };
   const generateTitle = (date) => {
     return date;
   };
@@ -30,8 +40,10 @@ const ManagerInfo = ({ title, fixtures }) => {
       <div className="manager__inner-row">
         {Object.keys(data).map((key, index) => (
           <div
-            className="manager__inner-column first wow animateUp"
-            data-wow-delay={`.${index * 2}s`}
+            className={`manager__inner-column ${
+              index === 0 ? "first" : ""
+            } wow animateUp`}
+            data-wow-delay={`.${index * 1.5}s`}
             key={key}
           >
             <ManagerList title={generateTitle(key)} items={data[key]} />

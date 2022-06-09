@@ -1,7 +1,10 @@
 import * as actions from "../interfaces/appInterface";
 
 const initialState = {
+  appState: "",
+  errorMessage: "",
   userLogged: false,
+  userName: "",
   dataInitialized: false,
   gameweekData: {},
   topTransfers: {},
@@ -13,10 +16,27 @@ const initialState = {
 
 const appReducer = (state = initialState, action) => {
   switch (action.type) {
+    case actions.setAppState:
+      return {
+        ...state,
+        appState: action.state,
+      };
+    case actions.setStateError:
+      return {
+        ...state,
+        appState: "error",
+        errorMessage: action.data,
+      };
+    case actions.setErrorMessage:
+      return {
+        ...state,
+        errorMessage: action.data,
+      };
     case actions.setUserLogged:
       return {
         ...state,
         userLogged: action.state,
+        userName: action.user ?? "",
       };
     case actions.setDataInitialized:
       return {
