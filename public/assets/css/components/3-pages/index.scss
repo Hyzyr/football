@@ -652,6 +652,8 @@
       }
     }
     &__cells {
+      justify-content: space-between;
+
       &-row {
         &-cell {
           min-height: 175px;
@@ -724,6 +726,9 @@
   }
 
   .field {
+    &__cells {
+      justify-content: space-around;
+    }
     &__player {
       &-fdr {
         padding: 5px 10px 10px 10px;
@@ -785,6 +790,12 @@
     }
   }
   .field {
+    &__cells {
+      justify-content: space-between;
+      &-row{
+        max-width: 380px;
+      }
+    }
     &__body {
       height: unset;
       padding-bottom: 120%;

@@ -773,14 +773,14 @@ export const topTeamsFormObject = {
         {
           teamId: 14,
           hexColor: "00943E",
-          letter: "W",
+          letter: "1",
         },
         {
           teamId: 2,
 
           hexColor: "00943E",
 
-          letter: "W",
+          letter: "2",
         },
       ],
     },
@@ -796,14 +796,14 @@ export const topTeamsFormObject = {
           teamId: 5,
 
           hexColor: "00943E",
-          letter: "W",
+          letter: "1",
         },
         {
           teamId: 19,
 
           hexColor: "F2C94C",
 
-          letter: "D",
+          letter: "2",
         },
 
         {
@@ -811,7 +811,7 @@ export const topTeamsFormObject = {
 
           hexColor: "A50C0C",
 
-          letter: "L",
+          letter: "3",
         },
       ],
     },
@@ -908,21 +908,21 @@ export const topTeamsFdrObject = {
           teamId: 5,
 
           hexColor: "00943E",
-          letter: "W",
+          letter: "1",
         },
         {
           teamId: 19,
 
           hexColor: "F2C94C",
 
-          letter: "D",
+          letter: "2",
         },
         {
           teamId: 22,
 
           hexColor: "A50C0C",
 
-          letter: "L",
+          letter: "3",
         },
       ],
     },

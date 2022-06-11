@@ -148,14 +148,20 @@ html {
 
 button,
 a {
-  cursor: pointer;
+  cursor: context-menu;
 }
 
 button,
 input,
 textarea {
+  cursor: context-menu;
   outline: none;
   background: transparent;
+}
+button:focus,
+input:focus,
+textarea:focus {
+  cursor: text;
 }
 
 button:focus {
@@ -719,7 +725,7 @@ li {
   opacity: 1;
 }
 .help__text {
-  cursor: pointer;
+  cursor: context-menu;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1191,7 +1197,7 @@ li {
   transition: opacity 0.2s ease-in 0.1s, top 0.2s ease-in 0s;
 }
 .header__inner-user-drop-box button {
-  cursor: pointer;
+  cursor: context-menu;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1304,7 +1310,7 @@ li {
   outline: none;
 }
 .slick-list.dragging {
-  cursor: pointer;
+  cursor: context-menu;
   cursor: hand;
 }
 
@@ -2327,6 +2333,11 @@ li {
   .field__body-team-row {
     padding: 0 15px;
   }
+  .field__cells {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
   .field__cells-row-cell {
     min-height: 175px;
   }
@@ -2398,6 +2409,10 @@ li {
     height: 100%;
   }
 
+  .field__cells {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
   .field__player-fdr {
     padding: 5px 10px 10px 10px;
   }
@@ -2451,6 +2466,14 @@ li {
     font-size: 12px;
   }
 
+  .field__cells {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .field__cells-row {
+    max-width: 380px;
+  }
   .field__body {
     height: unset;
     padding-bottom: 120%;

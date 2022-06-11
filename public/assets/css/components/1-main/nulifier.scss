@@ -21,14 +21,18 @@ html {
 
 button,
 a {
-  cursor: pointer;
+  cursor: context-menu;
 }
 
 button,
 input,
 textarea {
+  cursor: context-menu;
   outline: none;
   background: transparent;
+  &:focus {
+    cursor: text;
+  }
 }
 button:focus {
   outline: none;
