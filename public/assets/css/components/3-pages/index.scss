@@ -614,14 +614,17 @@
   .manager {
     &__inner {
       &-field {
-        width: calc(100% - 280px - 20px);
+        width: calc(100% - 260px - 15px);
 
+        &-details {
+          padding: 20px 25px 0 25px;
+        }
         &-body {
-          padding: 28px 30px 45px 30px;
+          padding: 28px 25px 45px 25px;
         }
       }
       &-group {
-        width: 280px;
+        width: 260px;
       }
     }
     &__list {
@@ -637,14 +640,46 @@
       }
     }
     &__title {
-      padding: 0 30px;
+      padding: 0 23px;
+    }
+  }
+  .field {
+    &__body {
+      &-team {
+        &-row {
+          padding: 0 15px;
+        }
+      }
+    }
+    &__cells {
+      &-row {
+        &-cell {
+          min-height: 175px;
+        }
+      }
+    }
+    &__player {
+      width: calc(20% - 4px);
+      &-title {
+        font-size: 12px;
+        padding: 0 10px;
+      }
+      &-fdr {
+        padding: 5px 5px 10px 5px;
+        &-item {
+          span {
+            font-size: 9px;
+          }
+        }
+      }
     }
   }
 }
 
-// (max-width: 1280px)
+// (max-width: 1160px)
 @mixin index-xlg-xxlg-extra {
   .manager {
+    margin: 30px 0 120px 0;
     &__inner {
       flex-direction: column;
       align-items: stretch;
@@ -685,6 +720,19 @@
     }
     &__list {
       height: 100%;
+    }
+  }
+
+  .field {
+    &__player {
+      &-fdr {
+        padding: 5px 10px 10px 10px;
+        &-item {
+          span {
+            font-size: 10px;
+          }
+        }
+      }
     }
   }
 }
@@ -740,26 +788,6 @@
     &__body {
       height: unset;
       padding-bottom: 120%;
-      &-team {
-        &-row {
-          padding: 0 20px;
-        }
-      }
-    }
-    &__cells {
-      &-row {
-        &-cell {
-          min-height: 175px;
-        }
-      }
-    }
-    &__player {
-      &-title {
-        padding: 0 10px;
-      }
-      &-fdr {
-        padding: 5px 10px 10px 10px;
-      }
     }
   }
 }
@@ -946,6 +974,23 @@
         }
       }
     }
+    &__player {
+      max-width: 120px;
+
+      &-title {
+        font-size: 10px;
+      }
+      &-fdr {
+        &-item {
+          span {
+            font-size: 8px;
+            &.color {
+              height: 11.5px;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -1060,6 +1105,7 @@
 // (max-width: 540px)
 @mixin index-xxsm-xsm {
   .manager {
+    margin: 25px 0 100px 0;
     &__inner {
       &-field {
         &-details {
@@ -1139,6 +1185,8 @@
 // (max-width: 480px)
 @mixin index-xxxsm-xxsm {
   .manager {
+    margin: 25px 0 90px 0;
+
     &__inner {
       &-field {
         &-details {
@@ -1184,6 +1232,17 @@
     &__list {
       &-item {
         // padding: ;
+        &-ico {
+          width: 30px;
+          height: 30px;
+        }
+        &-score {
+          font-size: 13px;
+          width: 80px;
+        }
+        span {
+          font-size: 14px;
+        }
       }
     }
   }

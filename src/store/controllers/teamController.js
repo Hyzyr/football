@@ -15,7 +15,7 @@ export const linkTeam =
       type: actions.setFieldState,
       state: "loading",
     });
-    await waiter(3000);
+    await waiter();
     if (errorMessage) {
       dispatch({
         type: actions.setStateError,

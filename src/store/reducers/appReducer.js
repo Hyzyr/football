@@ -3,7 +3,7 @@ import * as actions from "../interfaces/appInterface";
 const initialState = {
   appState: "",
   errorMessage: "",
-  userLogged: false,
+  userLogged: true,
   userName: "",
   dataInitialized: false,
   gameweekData: {},

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Img from "components/items/Img";
+import { useRef } from "react";
 
 const List = ({
   title,
@@ -8,12 +9,51 @@ const List = ({
   type = "amount",
   badgesKey = "form",
 }) => {
+  const [badgesStyle, setBadgesStyle] = useState({
+    width: "unset",
+  });
+  const listDom = useRef(null);
+
+  // calc Best Width for badges wrapper
+  const calcWidth = () => {
+    if (type === "badges" && listDom.current) {
+      let width = "auto";
+
+      const badges = listDom.current.querySelectorAll(".info__badges");
+      badges.forEach((wrapper) => {
+        if (width === "auto" || wrapper.clientWidth > width) {
+          width = wrapper.clientWidth;
+        }
+      });
+
+      return {
+        width: width,
+      };
+    }
+  };
+  /// recalc width on resize
+  useEffect(() => {
+    if (type === "badges" && listDom.current)
+      new ResizeObserver(() => setBadgesStyle(calcWidth())).observe(
+        listDom.current
+      );
+    // eslint-disable-next-line
+  }, []);
+
+  /// calc on start or recalc width on dependecies change
+  useEffect(() => {
+    setBadgesStyle(calcWidth());
+
+    // eslint-disable-next-line
+  }, [type, data, listDom]);
+
   return (
-    <div className="info__inner-list">
+    <div className="info__inner-list" ref={listDom}>
       <div className="info__inner-list-title">{title}</div>
       <div className="info__inner-list-subtitle">
         <span>{subtitles[0]}</span>
-        <span>{subtitles[1]}</span>
+        {type !== "badges" && <span>{subtitles[1]}</span>}
+        {type === "badges" && <span style={badgesStyle}>{subtitles[1]}</span>}
       </div>
       {data.map((item, index) => (
         <div className="info__inner-list-item" key={index}>

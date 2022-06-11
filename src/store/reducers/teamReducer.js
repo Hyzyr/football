@@ -1,8 +1,9 @@
+import { teamObject } from "store/controllers/tetsData.js";
 import * as actions from "../interfaces/teamInterface.js";
 
 const initialState = {
-  hasTeam: false,
-  teamData: null,
+  hasTeam: true,
+  teamData: teamObject,
   fieldState: "",
   errorMessage: "",
 };

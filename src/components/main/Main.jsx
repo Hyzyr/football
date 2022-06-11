@@ -19,6 +19,8 @@ const Main = ({ appState, errorMessage, dataInitialized }) => {
   //init data once it enters to this page
   useEffect(() => {
     dispatch(appActions.fetchAll());
+
+    // eslint-disable-next-line
   }, []);
 
   return (

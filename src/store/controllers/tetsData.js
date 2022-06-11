@@ -172,7 +172,7 @@ export const fixturesObject = {
   meta: {
     gameweek: 37,
     // deadlineUtcDateEpoch: 1654764436689, // test passed date
-    deadlineUtcDateEpoch: 1654844800000,
+    deadlineUtcDateEpoch: 1655060400000,
   },
   fixtures: [
     {
@@ -267,7 +267,7 @@ export const fixturesObjectMax = {
   meta: {
     gameweek: 36,
     // deadlineUtcDateEpoch: 1654764436689, // test passed date
-    deadlineUtcDateEpoch: 1654844800000,
+    deadlineUtcDateEpoch: 1655060400000,
   },
   fixtures: [
     {

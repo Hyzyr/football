@@ -2299,13 +2299,16 @@ li {
   }
 
   .manager__inner-field {
-    width: calc(100% - 280px - 20px);
+    width: calc(100% - 260px - 15px);
+  }
+  .manager__inner-field-details {
+    padding: 20px 25px 0 25px;
   }
   .manager__inner-field-body {
-    padding: 28px 30px 45px 30px;
+    padding: 28px 25px 45px 25px;
   }
   .manager__inner-group {
-    width: 280px;
+    width: 260px;
   }
   .manager__list-title {
     padding: 15px 23px;
@@ -2318,10 +2321,33 @@ li {
     height: 35.5px;
   }
   .manager__title {
-    padding: 0 30px;
+    padding: 0 23px;
+  }
+
+  .field__body-team-row {
+    padding: 0 15px;
+  }
+  .field__cells-row-cell {
+    min-height: 175px;
+  }
+  .field__player {
+    width: calc(20% - 4px);
+  }
+  .field__player-title {
+    font-size: 12px;
+    padding: 0 10px;
+  }
+  .field__player-fdr {
+    padding: 5px 5px 10px 5px;
+  }
+  .field__player-fdr-item span {
+    font-size: 9px;
   }
 }
-@media (max-width: 1280px) {
+@media (max-width: 1160px) {
+  .manager {
+    margin: 30px 0 120px 0;
+  }
   .manager__inner {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -2370,6 +2396,13 @@ li {
   }
   .manager__list {
     height: 100%;
+  }
+
+  .field__player-fdr {
+    padding: 5px 10px 10px 10px;
+  }
+  .field__player-fdr-item span {
+    font-size: 10px;
   }
 }
 @media (max-width: 1024px) {
@@ -2421,18 +2454,6 @@ li {
   .field__body {
     height: unset;
     padding-bottom: 120%;
-  }
-  .field__body-team-row {
-    padding: 0 20px;
-  }
-  .field__cells-row-cell {
-    min-height: 175px;
-  }
-  .field__player-title {
-    padding: 0 10px;
-  }
-  .field__player-fdr {
-    padding: 5px 10px 10px 10px;
   }
 
   .points__row {
@@ -2717,6 +2738,18 @@ li {
   }
   .field__cells-row-cell {
     min-height: 160px;
+  }
+  .field__player {
+    max-width: 120px;
+  }
+  .field__player-title {
+    font-size: 10px;
+  }
+  .field__player-fdr-item span {
+    font-size: 8px;
+  }
+  .field__player-fdr-item span.color {
+    height: 11.5px;
   }
 
   .lander__logo .logo {
@@ -3013,6 +3046,9 @@ li {
     height: 65px;
   }
 
+  .manager {
+    margin: 25px 0 100px 0;
+  }
   .manager__inner-field-details-header {
     margin-bottom: 23px;
   }
@@ -3096,6 +3132,9 @@ li {
     padding: 0 15px;
   }
 
+  .manager {
+    margin: 25px 0 90px 0;
+  }
   .manager__inner-field-details {
     padding: 12px 12px 18px 12px;
   }
@@ -3160,6 +3199,18 @@ li {
   .manager__title .timer {
     font-size: 18px;
   }
+  .manager__list-item-ico {
+    width: 30px;
+    height: 30px;
+  }
+  .manager__list-item-score {
+    font-size: 13px;
+    width: 80px;
+  }
+  .manager__list-item span {
+    font-size: 14px;
+  }
+
   .field__body {
     height: 500px;
   }
