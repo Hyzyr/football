@@ -19,12 +19,12 @@ html {
   outline: none;
 }
 
-button,
-a {
-  cursor: default;
+button {
+  cursor: pointer;
+  background: transparent;
+
 }
 
-button,
 input,
 textarea {
   cursor: default;
@@ -37,9 +37,7 @@ textarea {
 button:focus {
   outline: none;
 }
-button:focus {
-  outline: none;
-}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

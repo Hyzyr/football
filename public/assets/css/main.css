@@ -146,26 +146,20 @@ html {
   outline: none;
 }
 
-button,
-a {
-  cursor: default;
+button {
+  cursor: pointer;
+  background: transparent;
 }
 
-button,
 input,
 textarea {
   cursor: default;
   outline: none;
   background: transparent;
 }
-button:focus,
 input:focus,
 textarea:focus {
   cursor: text;
-}
-
-button:focus {
-  outline: none;
 }
 
 button:focus {
@@ -808,6 +802,7 @@ li {
 }
 
 .button {
+  cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
