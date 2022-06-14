@@ -21,13 +21,13 @@ html {
 
 button,
 a {
-  cursor: context-menu;
+  cursor: default;
 }
 
 button,
 input,
 textarea {
-  cursor: context-menu;
+  cursor: default;
   outline: none;
   background: transparent;
   &:focus {

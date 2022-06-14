@@ -249,7 +249,7 @@
 
 .popup {
   position: relative;
-  cursor: context-menu;
+  cursor: default;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -399,7 +399,7 @@
 }
 
 .help {
-  cursor: context-menu;
+  cursor: default;
 
   &.active {
     .help {
@@ -417,7 +417,7 @@
     }
   }
   &__text {
-    cursor: context-menu;
+    cursor: default;
     display: flex;
     align-items: center;
     color: $primary;
@@ -539,7 +539,7 @@
   position: relative;
 
   input {
-    cursor: context-menu;
+    cursor: default;
     box-sizing: border-box;
     width: 100%;
     height: 50px;

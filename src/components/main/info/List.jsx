@@ -27,7 +27,7 @@ const List = ({
       });
 
       return {
-        width: width,
+        minWidth: width,
       };
     }
   };
@@ -71,7 +71,7 @@ const List = ({
             </div>
           )}
           {type === "badges" && (
-            <div className="info__badges">
+            <div className="info__badges" style={badgesStyle}>
               {item[badgesKey] &&
                 item[badgesKey]?.map((badge, i) => (
                   <span

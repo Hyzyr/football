@@ -148,13 +148,13 @@ html {
 
 button,
 a {
-  cursor: context-menu;
+  cursor: default;
 }
 
 button,
 input,
 textarea {
-  cursor: context-menu;
+  cursor: default;
   outline: none;
   background: transparent;
 }
@@ -554,7 +554,7 @@ li {
 
 .popup {
   position: relative;
-  cursor: context-menu;
+  cursor: default;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -712,7 +712,7 @@ li {
 }
 
 .help {
-  cursor: context-menu;
+  cursor: default;
 }
 .help.active .help__text .custIcon {
   -webkit-transform: rotate(0);
@@ -725,7 +725,7 @@ li {
   opacity: 1;
 }
 .help__text {
-  cursor: context-menu;
+  cursor: default;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -854,7 +854,7 @@ li {
   position: relative;
 }
 .customInput input {
-  cursor: context-menu;
+  cursor: default;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 100%;
@@ -1086,7 +1086,7 @@ li {
   opacity: 0.8;
 }
 .header__inner-user {
-  cursor: context-menu;
+  cursor: default;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1197,7 +1197,7 @@ li {
   transition: opacity 0.2s ease-in 0.1s, top 0.2s ease-in 0s;
 }
 .header__inner-user-drop-box button {
-  cursor: context-menu;
+  cursor: default;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1310,7 +1310,7 @@ li {
   outline: none;
 }
 .slick-list.dragging {
-  cursor: context-menu;
+  cursor: default;
   cursor: hand;
 }
 
@@ -2127,7 +2127,7 @@ li {
   opacity: 0.8;
 }
 .info__inner-list {
-  cursor: context-menu;
+  cursor: default;
 }
 .info__inner-list-title {
   display: -webkit-box;
